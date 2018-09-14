@@ -1,27 +1,26 @@
 #include <stdlib.h>
 #include <stdio.h>
-#define MAX 12
 
-int main(void){
-	double M[MAX][MAX];
-	double resultado = 0;
-	int linha, i, j;
-	char T[2];
+int main() {
 
-	scanf("%d", &linha);
-	scanf("%s", T);
+	double m[12][12];
+	int l;
+	char ope;
+	scanf("%d", &l);
+	scanf("%c", &ope);
+	double result = 0;
 
-	for(i=0; i<MAX; i++)
-		for(j=0; j<MAX; j++)
-			scanf("%lf", &M[i][j]);
+	for(int i = 0; i<12; i++)
+		for(int j = 0; j < 12; j++)
+			printf("%lf\n", m[i][j]);
 
-	for(j=0; j<MAX; j++)
-		resultado += M[j][linha];
-	
-	if(T[0] == 'M')
-		printf("%.1f\n", (resultado/MAX));
-	else if(T[0] == 'S')
-		printf("%.1f\n", resultado);
-	
-  	return 0;
+	for(int i = 0; i < 12; i++)
+		result += m[l][i];
+
+	if(ope == 'M')
+		result /= 12;
+	else if(ope == 'S'){
+		printf("%.1f\n", result);
+	}
+  return 0;
 }
